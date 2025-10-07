@@ -1,0 +1,42 @@
+{
+  "roll_up": "./roll-up.xlsx",
+  "management_summary_v": "./mgmtSumm.xlsx",
+  "stores": [
+    {
+      "name": "chandler_ave",
+      "mgmt_v_page": 2,
+      "aged_receivable": "./ar271.xlsx",
+      "rollup_row": 9
+    },
+    {
+      "name": "branch_ave",
+      "mgmt_v_page": 1,
+      "aged_receivable": "./ar281.xlsx",
+      "rollup_row": 13
+    },
+    {
+      "name": "g_washington_hwy",
+      "mgmt_v_page": 6,
+      "aged_receivable": "./ar282.xlsx",
+      "rollup_row": 17
+    },
+    {
+      "name": "main_st",
+      "mgmt_v_page": 3,
+      "aged_receivable": "./ar283.xlsx",
+      "rollup_row": 21
+    },
+    {
+      "name": "tech_park",
+      "mgmt_v_page": 4,
+      "aged_receivable": "./ar284.xlsx",
+      "rollup_row": 25
+    },
+    {
+      "name": "post_rd",
+      "mgmt_v_page": 5,
+      "aged_receivable": "./ar286.xlsx",
+      "rollup_row": 29
+    }
+  ]
+}
