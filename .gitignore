@@ -1,0 +1,6 @@
+*.xlsx
+
+/.bundle/
+/vendor/
+
+exampleConfig.json
