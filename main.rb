@@ -6,7 +6,10 @@ require_relative 'store'
 require_relative 'writer'
 require_relative 'config'
 
-stores = {}
+config_file = File.read('./config.json')
+config = JSON.parse(config_file)
+
+puts config['stores'][1]
 
 MAX_PROGRESS = STORES.length * 5
 curr_progress = 0
@@ -18,6 +21,9 @@ def progress_bar(progress)
   bar = '[' + ('#' * progress) + ('-' * (MAX_PROGRESS - progress)) + ']'
   print "\r#{bar} #{progress_percent.round(2)}%/100%"
 end
+
+
+stores = {}
 
 STORES.each do |store|
   stores[store[:name].to_sym] = Store.new(
