@@ -6,12 +6,15 @@ require_relative 'store'
 require_relative 'writer'
 require_relative 'config'
 
+<<<<<<< HEAD
 config_file = File.read('./config.json')
 config = JSON.parse(config_file)
 
 puts config['stores'][1]
 
-MAX_PROGRESS = STORES.length * 5
+
+MAX_PROGRESS = json_stores.length * 5
+>>>>>>> ab13b29 (Update main.rb)
 curr_progress = 0
 
 def progress_bar(progress)
@@ -19,18 +22,25 @@ def progress_bar(progress)
   progress_percent = (progress.to_f / MAX_PROGRESS) * 100
 
   bar = '[' + ('#' * progress) + ('-' * (MAX_PROGRESS - progress)) + ']'
+<<<<<<< HEAD
   print "\r#{bar} #{progress_percent.round(2)}%/100%"
+>>>>>>> ab13b29 (Update main.rb)
 end
 
 
+
+config_file = File.read('./config.json')
+config = JSON.parse(config_file)
+
+json_stores = config['stores']
 stores = {}
 
-STORES.each do |store|
-  stores[store[:name].to_sym] = Store.new(
-    MANAGEMENT_SUMMARY_V,
-    store[:mgmt_v_page] - 1,
-    store[:aged_receivable],
-    store[:rollup_row] - 1
+json_stores.each do |store|
+  stores[store['name'].to_sym] = Store.new(
+    config['management_summary_v'],
+    store['mgmt_v_page'] - 1,
+    store['aged_receivable'],
+    store['rollup_row'] - 1
   )
 end
 
