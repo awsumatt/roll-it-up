@@ -60,4 +60,6 @@ As long as you maintain consistent file names, this configuration only needs to 
 
 > Note: To avoid issues, it is recommended that you close your Roll-Up in Excel before running Roll-it-Up
 
-To see it in action, right click inside the folder and select "**Open in Terminal**". Run the command `ruby main.rb`. As long as you have configured it with the correct reports, Roll-it-Up will read your management summary and aged receivables, open your roll-up, and then write in the data for each store.
+To see it in action, right click inside the folder and select "**Open in Terminal**". Run the command `ruby main.rb`.
+
+As long as you have configured it with the correct reports, Roll-it-Up will read your management summary and aged receivables, open your roll-up, and then write in the data for each store.
