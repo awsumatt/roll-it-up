@@ -46,12 +46,12 @@ class Writer
   end
 
   def write_rentals(store, row)
-    write_cell(row, 12, store.rentals[:projected_rent])
-    write_cell(row, 13, store.rentals[:new_rentals])
-    write_cell(row, 14, store.rentals[:term_rentals])
-    write_cell(row, 16, store.rentals[:occupied_sf])
-    write_cell(row, 17, store.rentals[:occupied_ratio])
-    write_cell(row, 18, store.rentals[:occupied_econ])
+    i = 12
+    store.rentals.each_value do |value|
+      i == 15 ? i += 1 : nil
+      write_cell(row, i, value)
+      i += 1
+    end
   end
 
   def write_ar(store, row)
