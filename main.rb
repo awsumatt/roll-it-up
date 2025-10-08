@@ -4,7 +4,6 @@ require 'io/console'
 require 'json'
 require_relative 'store'
 require_relative 'writer'
-require_relative 'config'
 
 
 config_file = File.read('./config.json')
@@ -34,7 +33,7 @@ json_stores.each do |store|
   )
 end
 
-roll_up = Writer.new(ROLL_UP)
+roll_up = Writer.new(config['roll_up'])
 
 stores.each_value do |store|
   curr_progress += 5
