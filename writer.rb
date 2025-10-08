@@ -8,7 +8,6 @@ class Writer
     @filename = roll_up
     @roll_up = RubyXL::Parser.parse(@filename)
     @ssm_data = @roll_up['SSM Data']
-    puts @ssm_data[9][2].value
   end
 
   def write(store, row)
