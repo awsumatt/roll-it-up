@@ -18,7 +18,9 @@ curr_progress = 0
 def progress_bar(progress)
   $stdout.erase_line(1)
   progress_percent = (progress.to_f / MAX_PROGRESS) * 100
-  bar = '[' + ('#' * progress) + ('-' * (MAX_PROGRESS - progress)) + ']'
+  bar_complete = '#' * progress
+  bar_incomplete = '-' * (MAX_PROGRESS - progress)
+  bar = "[#{bar_complete}#{bar_incomplete}]"
 
   print "\r#{bar} #{progress_percent.round(2)}%/100%"
 end
