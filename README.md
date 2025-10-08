@@ -6,7 +6,7 @@
 
 ### Windows
 
-You must use the [RubyInstaller](https://rubyinstaller.org/downloads/) in order to run the included Ruby scripts. 
+You must use the [RubyInstaller](https://rubyinstaller.org/downloads/) in order to run the included Ruby scripts.
 
 > **IMPORTANT:** Make sure you install the "With Devkit" version. Should be listed as `Ruby+Devkit 3.4.X (x64)`
 
@@ -31,7 +31,7 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
   "roll_up": "./file-name.xlsx",              // Exact filename of Roll Up
   "management_summary_v": "./file-name.xlsx", // Exact filename of Management Summary V
   "stores": [
-    {										  // Store name. Can be anything as
+    {                                         // Store name. Can be anything as
       "name": "store100",                     // long as it contains no  spaces.
       "mgmt_v_page": 1,
       "aged_receivable": "./file-name.xlsx",  // Exact filename of aged receivable
@@ -54,11 +54,10 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
 
 ```
 
-As long as you maintain consistent file names, this configuration only needs to be done once. The only bottleneck now is getting the reports out of SSM, Roll-it-Up takes care of the data entry! 
+As long as you maintain consistent file names, this configuration only needs to be done once. The only bottleneck now is getting the reports out of SSM, Roll-it-Up takes care of the data entry!
 
 ### Usage
 
 > Note: To avoid issues, it is recommended that you close your Roll-Up in Excel before running Roll-it-Up
 
-To see it in action, right click inside the folder and select "**Open in Terminal**". Run the command `ruby main.rb`. As long as you have configured it with the correct reports, Roll-it-Up will read your management summary and aged receivables, open your roll-up, and then write in the data for each store. 
-
+To see it in action, right click inside the folder and select "**Open in Terminal**". Run the command `ruby main.rb`. As long as you have configured it with the correct reports, Roll-it-Up will read your management summary and aged receivables, open your roll-up, and then write in the data for each store.
