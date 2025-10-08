@@ -8,13 +8,15 @@ require_relative 'config'
 
 stores = {}
 
-MAX_PROGRESS = STORES.length
+MAX_PROGRESS = STORES.length * 5
 curr_progress = 0
 
 def progress_bar(progress)
   $stdout.erase_line(1)
-  bar = '[' + ('=' * progress) + (' ' * (MAX_PROGRESS - progress)) + ']'
-  print "\r#{bar} #{progress}/#{MAX_PROGRESS}"
+  progress_percent = (progress.to_f / MAX_PROGRESS) * 100
+
+  bar = '[' + ('#' * progress) + ('-' * (MAX_PROGRESS - progress)) + ']'
+  print "\r#{bar} #{progress_percent.round(2)}%/100%"
 end
 
 STORES.each do |store|
@@ -29,7 +31,7 @@ end
 roll_up = Writer.new(ROLL_UP)
 
 stores.each_value do |store|
-  curr_progress += 1
+  curr_progress += 5
   roll_up.write(store, store.rollup_row)
   progress_bar(curr_progress)
 end
