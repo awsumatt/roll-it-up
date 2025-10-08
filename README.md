@@ -26,7 +26,7 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
 
 > Prior to configuring, place all reports inside the `roll-it-up_1.0` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
 
-```json
+```js
 {
   "roll_up": "./file-name.xlsx",              // Exact filename of Roll Up
   "management_summary_v": "./file-name.xlsx", // Exact filename of Management Summary V
