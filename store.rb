@@ -50,7 +50,11 @@ class Store
       puts "#{key}: $#{value}"
     end
     @receipts.each do |key, value|
-      puts "#{key}: $#{value}"
+      if key == :insurance_pen
+        puts "#{key}: #{value * 100}%"
+      else
+        puts "#{key}: $#{value}"
+      end
     end
     @rentals.each do |key, value|
       puts "#{key}: #{value}"
@@ -107,7 +111,7 @@ class Store
       new_rentals: mgmt_cell(@mgmt_index[:new_rentals], 'K'),
       term_rentals: mgmt_cell(@mgmt_index[:term_rentals], 'K'),
       occupied_ratio: mgmt_cell(@mgmt_index[:occupied_ratio], 'F').to_f / 100,
-      occupied_sf: mgmt_cell(@mgmt_index[:occupied_sf], 'E'),
+      occupied_sf: mgmt_cell(@mgmt_index[:occupied_sf], 'E').to_i,
       occupied_econ: mgmt_cell(@mgmt_index[:occupied_econ], 'K').to_f / 100
     }
   end
