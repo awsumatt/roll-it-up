@@ -35,15 +35,15 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
       "name": "store100",                     // long as it contains no  spaces.
       "mgmt_v_page": 1,
       "aged_receivable": "./file-name.xlsx",  // Exact filename of aged receivable
-      "rollup_row": 4
+      "rollup_row": 4                         // Row of 'SSM Data' that Store is on inside Roll-up
     },
     {
       "name": "store101",
       "mgmt_v_page": 2,                        // Page of MGMT Summary V that store is on
       "aged_receivable": "./file-name.xlsx",
-      "rollup_row": 8                          // Row of 'SSM Data' that Store is on inside Roll-up
-    }, // Each store except for the last requires a comma after the curly braces
-    {
+      "rollup_row": 8
+    },                                         // Each store except for the last requires
+    {                                          // a comma after the curly braces
       "name": "store102",
       "mgmt_v_page": 3,
       "aged_receivable": "./file-name.xlsx",
