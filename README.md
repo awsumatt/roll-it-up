@@ -56,7 +56,7 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
 
 As long as you maintain consistent file names, this configuration only needs to be done once. The only bottleneck now is getting the reports out of SSM, Roll-it-Up takes care of the data entry!
 
-### Usage
+### Execution
 
 > Note: To avoid issues, it is recommended that you close your Roll-Up in Excel before running Roll-it-Up
 
