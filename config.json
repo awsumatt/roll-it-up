@@ -6,37 +6,43 @@
       "name": "chandler_ave",
       "mgmt_v_page": 2,
       "aged_receivable": "./ar271.xlsx",
-      "rollup_row": 9
+      "rollup_row": 9,
+      "insurance_row": 6
     },
     {
       "name": "branch_ave",
       "mgmt_v_page": 1,
       "aged_receivable": "./ar281.xlsx",
-      "rollup_row": 13
+      "rollup_row": 13,
+      "insurance_row": 7
     },
     {
       "name": "g_washington_hwy",
       "mgmt_v_page": 6,
       "aged_receivable": "./ar282.xlsx",
-      "rollup_row": 17
+      "rollup_row": 17,
+      "insurance_row": 8
     },
     {
       "name": "main_st",
       "mgmt_v_page": 3,
       "aged_receivable": "./ar283.xlsx",
-      "rollup_row": 21
+      "rollup_row": 21,
+      "insurance_row": 9
     },
     {
       "name": "tech_park",
       "mgmt_v_page": 4,
       "aged_receivable": "./ar284.xlsx",
-      "rollup_row": 25
+      "rollup_row": 25,
+      "insurance_row": 10
     },
     {
       "name": "post_rd",
       "mgmt_v_page": 5,
       "aged_receivable": "./ar286.xlsx",
-      "rollup_row": 29
+      "rollup_row": 29,
+      "insurance_row": 11
     }
   ]
 }

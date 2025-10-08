@@ -12,6 +12,7 @@ MGMT_INDEX = {
   fees_waived: 15,
   write_offs: 16,
   insurance_collected: 15,
+  insurance_pen: 41,
   cash_receipts: 12,
   sales_tax: 14,
   nsf: 10,
@@ -25,14 +26,15 @@ MGMT_INDEX = {
 
 # This class represents a store and its financial data.
 class Store
-  attr_reader :revenue, :net_revenue, :receipts, :rentals, :ar, :total_ar, :rollup_row
+  attr_reader :revenue, :net_revenue, :receipts, :rentals, :ar, :total_ar, :rollup_row, :insurance_row
 
-  def initialize(mgmt_report, sheet_num, aged_receivable, rollup_row)
+  def initialize(mgmt_report, sheet_num, aged_receivable, rollup_row, insurance_row)
     @mgmt_report = Roo::Excelx.new(mgmt_report)
     @aged_receivable = Roo::Excelx.new(aged_receivable)
     @sheet_num = sheet_num
     @sheet = @mgmt_report.sheets[@sheet_num]
     @rollup_row = rollup_row
+    @insurance_row = insurance_row
     @mgmt_index = MGMT_INDEX.dup
 
     @sheet_num.zero? ? plus_one : nil
@@ -92,6 +94,7 @@ class Store
   def pull_receipts
     @receipts = {
       insurance_collected: mgmt_cell(@mgmt_index[:insurance_collected], 'H') * -1,
+      insurance_pen: mgmt_cell(@mgmt_index[:insurance_pen], 'I') / 100,
       cash_receipts: mgmt_cell(@mgmt_index[:cash_receipts], 'H'),
       sales_tax: mgmt_cell(@mgmt_index[:sales_tax], 'H'),
       nsf: mgmt_cell(@mgmt_index[:nsf], 'H')

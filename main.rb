@@ -29,7 +29,8 @@ json_stores.each do |store|
     config['management_summary_v'],
     store['mgmt_v_page'] - 1,
     store['aged_receivable'],
-    store['rollup_row'] - 1
+    store['rollup_row'] - 1,
+    store['insurance_row'] - 1
   )
 end
 
