@@ -6,7 +6,7 @@ require_relative 'store'
 require_relative 'writer'
 require_relative 'config'
 
-<<<<<<< HEAD
+
 config_file = File.read('./config.json')
 config = JSON.parse(config_file)
 
@@ -14,17 +14,15 @@ puts config['stores'][1]
 
 
 MAX_PROGRESS = json_stores.length * 5
->>>>>>> ab13b29 (Update main.rb)
+
 curr_progress = 0
 
 def progress_bar(progress)
   $stdout.erase_line(1)
   progress_percent = (progress.to_f / MAX_PROGRESS) * 100
-
   bar = '[' + ('#' * progress) + ('-' * (MAX_PROGRESS - progress)) + ']'
-<<<<<<< HEAD
+
   print "\r#{bar} #{progress_percent.round(2)}%/100%"
->>>>>>> ab13b29 (Update main.rb)
 end
 
 
