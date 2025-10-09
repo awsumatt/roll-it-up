@@ -93,10 +93,10 @@ class Store
       late_lien: mgmt_cell(@mgmt_index[:late_lien], 'C'),
       merch: mgmt_cell(@mgmt_index[:merch], 'C'),
       fees_paid: mgmt_cell(@mgmt_index[:fees_paid], 'C'),
-      retained: mgmt_cell(@mgmt_index[:retained], 'C'),
       discounts: mgmt_cell(@mgmt_index[:discounts], 'C'),
       fees_waived: mgmt_cell(@mgmt_index[:fees_waived], 'C'),
-      write_offs: mgmt_cell(@mgmt_index[:write_offs], 'C')
+      write_offs: mgmt_cell(@mgmt_index[:write_offs], 'C'),
+      retained: mgmt_cell(@mgmt_index[:retained], 'C')
     }
   end
 
