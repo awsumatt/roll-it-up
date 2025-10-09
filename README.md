@@ -14,7 +14,7 @@ At the end of installation, RubyInstaller will launch a command prompt window to
 
 Next you're going to want to download the latest release of the roll-it-up script [here](https://github.com/awsumatt/roll-it-up/releases/tag/v1.0). You will then go to where you downloaded the `.zip`, right click on it, and select "**Extract All...**". I recommend clicking **Browse** and selecting your **Downloads** folder for the location to make it easy to drag your reports in.
 
-Lastly, we need to pull down a couple modules for reading and writing to the Excel sheets. Navigate to the `roll-it-up_1.0` folder that you just extracted. Right click inside the folder and select "**Open in Terminal**". This should open a PowerShell instance where you can run the following command: `bundle install`. The  modules will be pulled down automatically and you are ready to rock!
+Lastly, we need to pull down a couple modules for reading and writing to the Excel sheets. Navigate to the `roll-it-up_2.0` folder that you just extracted. Right click inside the folder and select "**Open in Terminal**". This should open a PowerShell instance where you can run the following command: `bundle install`. The  modules will be pulled down automatically and you are ready to rock!
 
 
 
@@ -24,37 +24,32 @@ Lastly, we need to pull down a couple modules for reading and writing to the Exc
 
 All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which row of the SSM data each store falls on. An example configuration below:
 
-> Prior to configuring, place all reports inside the `roll-it-up_1.0` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
+> Prior to configuring, place all reports inside the `roll-it-up_2.0` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
 
 ```js
 {
   "roll_up": "./file-name.xlsx",              // Exact filename of Roll Up
   "management_summary_v": "./file-name.xlsx", // Exact filename of Management Summary V
+  "aged_receivable": "./file-name.xslx"       // Exact filename of Aged Receivables
   "stores": [
-    {                                         // Store name. Can be anything as
-      "name": "store100",                     // long as it contains no  spaces.
-      "mgmt_v_page": 1,
-      "aged_receivable": "./file-name.xlsx",  // Exact filename of aged receivable
-      "rollup_row": 4                         // Row of 'SSM Data' that Store is on inside Roll-up
+    {
+      "store_num": "100",                     // Store number
+      "mgmt_v_page": 1                        // Page of MGMT Summary V that store is on
     },
     {
-      "name": "store101",
-      "mgmt_v_page": 2,                        // Page of MGMT Summary V that store is on
-      "aged_receivable": "./file-name.xlsx",
-      "rollup_row": 8
+      "name": "101",
+      "mgmt_v_page": 2
     },                                         // Each store except for the last requires
     {                                          // a comma after the curly braces
-      "name": "store102",
-      "mgmt_v_page": 3,
-      "aged_receivable": "./file-name.xlsx",
-      "rollup_row": 12
+      "name": "102",
+      "mgmt_v_page": 3
     }
   ]
 }
 
 ```
 
-As long as you maintain consistent file names, this configuration only needs to be done once. The only bottleneck now is getting the reports out of SSM, Roll-it-Up takes care of the data entry!
+As long as you maintain consistent file names, this configuration only needs to be done once.
 
 ### Execution
 
