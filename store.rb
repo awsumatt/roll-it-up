@@ -26,23 +26,22 @@ MGMT_INDEX = {
 
 # This class represents a store and its financial data.
 class Store
-  attr_reader :revenue, :net_revenue, :receipts, :rentals, :ar, :total_ar, :rollup_row, :insurance_row
+  attr_accessor :rollup_row, :insurance_row, :ar_row
+  attr_reader :revenue, :net_revenue, :receipts, :rentals, :ar, :total_ar, :store_num
 
-  def initialize(mgmt_report, sheet_num, aged_receivable, rollup_row, insurance_row)
+  def initialize(store_num, mgmt_report, sheet_num, aged_receivable)
+    @store_num = store_num
     @mgmt_report = Roo::Excelx.new(mgmt_report)
     @aged_receivable = Roo::Excelx.new(aged_receivable)
     @sheet_num = sheet_num
     @sheet = @mgmt_report.sheets[@sheet_num]
-    @rollup_row = rollup_row
+    @rollup_row = 0
     @insurance_row = insurance_row
     @mgmt_index = MGMT_INDEX.dup
+    @ar_row = 0
+
 
     @sheet_num.zero? ? plus_one : nil
-
-    pull_revenue
-    pull_receipts
-    pull_rentals
-    pull_ar
   end
 
   def info
@@ -64,6 +63,12 @@ class Store
     end
   end
 
+  def pull_data
+    pull_revenue
+    pull_receipts
+    pull_rentals
+    pull_ar
+  end
 
   private
 
@@ -111,18 +116,17 @@ class Store
       new_rentals: mgmt_cell(@mgmt_index[:new_rentals], 'K'),
       term_rentals: mgmt_cell(@mgmt_index[:term_rentals], 'K'),
       occupied_ratio: mgmt_cell(@mgmt_index[:occupied_ratio], 'F').to_f / 100,
-      occupied_sf: mgmt_cell(@mgmt_index[:occupied_sf], 'E').to_i,
+      occupied_sf: mgmt_cell(@mgmt_index[:occupied_sf], 'E'),
       occupied_econ: mgmt_cell(@mgmt_index[:occupied_econ], 'K').to_f / 100
     }
   end
 
   def pull_ar
-    last_row = @aged_receivable.last_row
     @ar = {
-      zero_to_thirty: ar_cell(last_row, 'J'),
-      thirty_to_sixty: ar_cell(last_row, 'K'),
-      sixty_to_ninety: ar_cell(last_row, 'L'),
-      ninety_plus: ar_cell(last_row, 'M') + ar_cell(last_row, 'N')
+      zero_to_thirty: ar_cell(@ar_row, 'J'),
+      thirty_to_sixty: ar_cell(@ar_row, 'K'),
+      sixty_to_ninety: ar_cell(@ar_row, 'L'),
+      ninety_plus: ar_cell(@ar_row, 'M') + ar_cell(@ar_row, 'N')
     }
   end
 
