@@ -12,7 +12,7 @@ You must use the [RubyInstaller](https://rubyinstaller.org/downloads/) in order 
 
 At the end of installation, RubyInstaller will launch a command prompt window to finish. Select option **3** to ensure that you have everything you need to run the script.
 
-Next you're going to want to download the latest release of the roll-it-up script [here](https://github.com/awsumatt/roll-it-up/releases/tag/v1.0). You will then go to where you downloaded the `.zip`, right click on it, and select "**Extract All...**". I recommend clicking **Browse** and selecting your **Downloads** folder for the location to make it easy to drag your reports in.
+Next you're going to want to download the latest release of the roll-it-up script [here](https://github.com/awsumatt/roll-it-up/releases/tag/v2.0). You will then go to where you downloaded the `.zip`, right click on it, and select "**Extract All...**". I recommend clicking **Browse** and selecting your **Downloads** folder for the location to make it easy to drag your reports in.
 
 Lastly, we need to pull down a couple modules for reading and writing to the Excel sheets. Navigate to the `roll-it-up_2.0` folder that you just extracted. Right click inside the folder and select "**Open in Terminal**". This should open a PowerShell instance where you can run the following command: `bundle install`. The  modules will be pulled down automatically and you are ready to rock!
 
@@ -37,11 +37,11 @@ All configuration options are contained within `config.json`. For Roll-it-Up to 
       "mgmt_v_page": 1                        // Page of MGMT Summary V that store is on
     },
     {
-      "name": "101",
+      "store_num": "101",
       "mgmt_v_page": 2
     },                                         // Each store except for the last requires
     {                                          // a comma after the curly braces
-      "name": "102",
+      "store_num": "102",
       "mgmt_v_page": 3
     }
   ]
