@@ -52,6 +52,24 @@ class RowGetter
     indecies
   end
 
+  def find_insurance_rows
+    num_of_stores = @stores.length
+    indecies = {}
+    found = 0
+    row = 5
+
+    while found < num_of_stores
+      curr_val = @roll_up.cell(row, 1, 'Insurance')
+      if curr_val.is_a?(Integer)
+        indecies[curr_val] = row
+        found += 1
+      end
+      row += 1
+    end
+
+    indecies
+  end
+
   def int_string?(val)
     Integer(val) rescue false
   end

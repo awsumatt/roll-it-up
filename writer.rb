@@ -11,11 +11,11 @@ class Writer
     @insurance = @roll_up['Insurance']
   end
 
-  def write(store, row)
-    write_revenue(store, row)
-    write_receipts(store, row)
-    write_rentals(store, row)
-    write_ar(store, row)
+  def write(store)
+    write_revenue(store, store.rollup_row)
+    write_receipts(store, store.rollup_row)
+    write_rentals(store, store.rollup_row)
+    write_ar(store, store.rollup_row)
     write_inurance(store, store.insurance_row)
     @roll_up.write(@filename)
   end
@@ -48,7 +48,7 @@ class Writer
   def write_rentals(store, row)
     i = 12
     store.rentals.each_value do |value|
-      i == 15 ? i += 1 : nil
+      i += 1 if i == 15
       write_cell(row, i, value)
       i += 1
     end
