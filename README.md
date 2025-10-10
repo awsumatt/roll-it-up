@@ -22,9 +22,10 @@ Lastly, we need to pull down a couple modules for reading and writing to the Exc
 
 ### Configuration
 
-All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which page of the Management Summary each store falls on. An example configuration below:
+All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which page of the Management Summary each store falls on. Roll-it-Up comes preconfigured for the New England district. If you are from a different district and want the configurator to walk you through the setup, simply delete the included `config.json` and skip to the **Execution** step of this guide.
 
 > Prior to configuring, place all reports inside the `roll-it-up_2.1` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
+#### An example configuration:
 
 ```js
 {
