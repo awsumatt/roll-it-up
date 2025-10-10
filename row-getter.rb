@@ -72,7 +72,7 @@ class RowGetter
 end
 
 class String
-  def int_string?(val)
-    Integer(val) rescue false
+  def int_string?
+    Integer(self) rescue false
   end
 end
