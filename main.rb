@@ -10,7 +10,7 @@ require_relative 'writer'
 begin
   config_file = File.read('./config.json')
   config = JSON.parse(config_file)
-rescue IOError => e
+rescue => e
   puts "No configuration found. Running configurator...\n\n"
   configurator = Configurator.new
   configurator.configure
