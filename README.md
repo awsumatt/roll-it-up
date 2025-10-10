@@ -22,7 +22,7 @@ Lastly, we need to pull down a couple modules for reading and writing to the Exc
 
 ### Configuration
 
-All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which row of the SSM data each store falls on. An example configuration below:
+All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which page of the Management Summary each store falls on. An example configuration below:
 
 > Prior to configuring, place all reports inside the `roll-it-up_2.0` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
 
