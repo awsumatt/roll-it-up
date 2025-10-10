@@ -14,7 +14,7 @@ At the end of installation, RubyInstaller will launch a command prompt window to
 
 Next you're going to want to download the latest release of the roll-it-up script [here](https://github.com/awsumatt/roll-it-up/releases/tag/v2.0). You will then go to where you downloaded the `.zip`, right click on it, and select "**Extract All...**". I recommend clicking **Browse** and selecting your **Downloads** folder for the location to make it easy to drag your reports in.
 
-Lastly, we need to pull down a couple modules for reading and writing to the Excel sheets. Navigate to the `roll-it-up_2.0` folder that you just extracted. Right click inside the folder and select "**Open in Terminal**". This should open a PowerShell instance where you can run the following command: `bundle install`. The  modules will be pulled down automatically and you are ready to rock!
+Lastly, we need to pull down a couple modules for reading and writing to the Excel sheets. Navigate to the `roll-it-up_2.1` folder that you just extracted. Right click inside the folder and select "**Open in Terminal**". This should open a PowerShell instance where you can run the following command: `bundle install`. The  modules will be pulled down automatically and you are ready to rock!
 
 
 
@@ -24,7 +24,7 @@ Lastly, we need to pull down a couple modules for reading and writing to the Exc
 
 All configuration options are contained within `config.json`. For Roll-it-Up to work properly, you must tell it where each report is and which page of the Management Summary each store falls on. An example configuration below:
 
-> Prior to configuring, place all reports inside the `roll-it-up_2.0` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
+> Prior to configuring, place all reports inside the `roll-it-up_2.1` folder. Consider renaming each report to omit any spaces so they can be easily entered into the config.
 
 ```js
 {
