@@ -2,13 +2,21 @@
 
 require 'io/console'
 require 'json'
+require_relative 'configurator'
+require_relative 'row-getter'
 require_relative 'store'
 require_relative 'writer'
-require_relative 'row-getter'
 
-
-config_file = File.read('./config.json')
-config = JSON.parse(config_file)
+begin
+  config_file = File.read('./config.json')
+  config = JSON.parse(config_file)
+rescue IOError => e
+  puts "No configuration found. Running configurator...\n\n"
+  configurator = Configurator.new
+  configurator.configure
+  config_file = File.read('./config.json')
+  config = JSON.parse(config_file)
+end
 
 json_stores = config['stores']
 stores = {}

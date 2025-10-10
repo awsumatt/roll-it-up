@@ -12,51 +12,68 @@ class String
   end
 end
 
-done = false
-config = {}
-stores = []
+class Configurator
+  def initialize
+    @config = {}
+  end
 
-puts "No configuration found. Running configurator...\n\n"
-puts "Report configuration:\n".bold
-puts 'Enter the file name of your roll-up:'
-puts '(format: file-name.xlsx)'.italic
-config[:roll_up] = "./#{gets.chomp}"
-puts 'Enter the file name of your Management Summary V:'
-config[:management_summary_v] = "./#{gets.chomp}"
-puts 'Enter the file name of your Aged Receivables:'
-config[:aged_receivable] = "./#{gets.chomp}"
+  def configure
 
+    add_reports
 
-puts "\nReports recorded.\n\n"
-puts "Store configuration:\n".bold
-until done
-  puts 'Enter store number:'
-  store_num = gets.chomp.to_i
+    puts "Store configuration:\n".bold
 
-  puts "Enter page number of Management Summary V for #{store_num}:"
-  mgmt_v_page = gets.chomp.to_i
+    add_stores
 
-  stores << { store_num: store_num, mgmt_v_page: mgmt_v_page }
-  commanded = false
+    puts 'Configuration complete.'.italic
+    puts 'Writing configuration to config.json...'
+    File.write('config.json', JSON.pretty_generate(@config))
+    puts "Configuration written.\n"
+  end
 
-  until commanded
-    puts 'Type "done" if finished or "add" to add another store'
-    command = gets.chomp.downcase
-    case command
-    when 'add'
-      commanded = true
-    when 'done'
-      done = true
-      commanded = true
-    else
-      puts "Unknown command: #{command}"
+  def add_reports
+    puts "Report configuration:\n".bold
+
+    puts 'Enter the file name of your roll-up:'
+    puts '(format: file-name.xlsx)'.italic
+    @config[:roll_up] = "./#{gets.chomp}"
+
+    puts 'Enter the file name of your Management Summary V:'
+    @config[:management_summary_v] = "./#{gets.chomp}"
+
+    puts 'Enter the file name of your Aged Receivables:'
+    @config[:aged_receivable] = "./#{gets.chomp}"
+
+    puts "\nReports recorded.\n\n"
+  end
+
+  def add_stores
+    stores = []
+    done = false
+    until done
+      puts 'Enter store number:'
+      store_num = gets.chomp.to_i
+
+      puts "Enter page number of Management Summary V for #{store_num}:"
+      mgmt_v_page = gets.chomp.to_i
+
+      stores << { store_num: store_num, mgmt_v_page: mgmt_v_page }
+      commanded = false
+
+      until commanded
+        puts 'Type "done" if finished or "add" to add another store'
+        command = gets.chomp.downcase
+        case command
+        when 'add'
+          commanded = true
+        when 'done'
+          done = true
+          commanded = true
+        else
+          puts "Unknown command: #{command}"
+        end
+      end
     end
+    @config[:stores] = stores
   end
 end
-
-config[:stores] = stores
-
-puts 'Configuration complete.'.italic
-puts 'Writing configuration to config.json...'
-File.write('config.json', JSON.pretty_generate(config))
-puts 'Configuration written.'
