@@ -23,7 +23,7 @@ class RowGetter
         next
       end
       curr_val = @aged_receivable.cell(row, 1)
-      if int_string?(curr_val)
+      if curr_val.int_string?
         store_num = curr_val.to_i
       else
         indecies[store_num] = row
@@ -69,7 +69,9 @@ class RowGetter
 
     indecies
   end
+end
 
+class String
   def int_string?(val)
     Integer(val) rescue false
   end
